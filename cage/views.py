@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Cryptid
+import media
 # Create your views here.
 
 def allCryptids(request):
     context = {"cryptids": Cryptid.objects.all()}
+    form = Cryptid(request.FILES)
     return render(request, "cage/index.html", context)
 
 def oneCryptids(request, cryptid_id):
