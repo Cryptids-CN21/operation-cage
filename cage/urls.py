@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("all/", views.allCryptids, name="allCryptids"),
@@ -9,3 +11,7 @@ urlpatterns = [
     path("date/", views.dateCryptids, name="dateLocated"),
     path("", views.cage, name="homePage"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
