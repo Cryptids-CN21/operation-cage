@@ -4,11 +4,16 @@ from .models import Cryptid
 # Create your views here.
 
 def allCryptids(request):
-    context = {"cryptid": Cryptid.objects.all()}
+    context = {"cryptids": Cryptid.objects.all()}
     return render(request, "cage/index.html", context)
 
-def oneCryptids(request):
-    return HttpResponse("one goes here")
+def oneCryptids(request, cryptid_id):
+    try:
+        c = Cryptid.objects.get(pk=cryptid_id)
+        return HttpResponse(c.text)
+    
+    except Cryptid.DoesNotExist as ex:
+        return HttpResponse("No such Cryptid")
 
 def locCryptids(request):
     return HttpResponse("all locations goes here")

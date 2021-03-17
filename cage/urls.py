@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path("all/", views.allCryptids, name="allCryptids"),
-    path("one/", views.oneCryptids, name="oneCrytids"),
+    path("one/<int:cryptid_id>/", views.oneCryptids, name="oneCryptids"),
     path("location/", views.locCryptids, name="locCryptids"),
     path("listLocation/", views.locListCryptids, name="listLocCryptids"),
     path("date/", views.dateCryptids, name="dateLocated"),
