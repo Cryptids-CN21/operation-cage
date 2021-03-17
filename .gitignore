@@ -293,5 +293,5 @@ $RECYCLE.BIN/
 *.lnk
 
 db.sqlite3
-
+media/
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,python,django,venv
