@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,python,django
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,python,django
+# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,python,django,venv
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,python,django,venv
 
 ### Django ###
 *.log
@@ -253,6 +253,19 @@ Temporary Items
 # profiling data
 
 
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -279,20 +292,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-### venv ###
-# Virtualenv
-# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
-.Python
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-[Ll]ocal
-[Ss]cripts
-pyvenv.cfg
-.venv
-pip-selfcheck.json
-
-__pycache__
-
-# End of https://www.toptal.com/developers/gitignore/api/macos,windows,python,django
+# End of https://www.toptal.com/developers/gitignore/api/macos,windows,python,django,venv
