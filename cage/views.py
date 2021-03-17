@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Cryptid
-import media
+
 # Create your views here.
 
 def allCryptids(request):
