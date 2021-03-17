@@ -6,7 +6,7 @@
 
 <img src="{% static 'cage/cryptids.jpg' %}">
 <ul>
-{% for cryptid in cryptids %}
+{% for c in cryptid %}
     <li>{{ cryptid.text }}</li>
 {% empty %}
     <li>No Cryptids</li>

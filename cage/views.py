@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Cryptid
 # Create your views here.
 
 def allCryptids(request):
-    return HttpResponse("all goes here")
+    context = {"cryptid": Cryptid.objects.all()}
+    return render(request, "cage/index.html", context)
 
 def oneCryptids(request):
     return HttpResponse("one goes here")
