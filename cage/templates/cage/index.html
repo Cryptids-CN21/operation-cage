@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cage{% endblock %}
+{% block content %}
+
+<img src="{% static 'cage/cryptids.jpg' %}">
+<ul>
+{% for cryptid in cryptids %}
+    <li>{{ cryptid.text }}</li>
+{% empty %}
+    <li>No Cryptids</li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+<li>
+    <a href="{% url 'detail' cryptid.id %}">
+        {{ cryptid.text }}
+    </a>
+</li>
+
+<li>
+    <a href="{% url 'detail' cryptid.id %}">
+        {{ cryptid.text|upper }}
+    </a>
+</li>
