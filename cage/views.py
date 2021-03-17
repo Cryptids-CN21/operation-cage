@@ -5,9 +5,8 @@ import media
 # Create your views here.
 
 def allCryptids(request):
-    context = {"cryptids": Cryptid.objects.all()}
-    form = Cryptid(request.FILES)
-    return render(request, "cage/index.html", context)
+    content = {"cryptids": Cryptid.objects.all()}
+    return render(request, "cage/index.html", content)
 
 def oneCryptids(request, cryptid_id):
     try:
