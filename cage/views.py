@@ -10,7 +10,7 @@ def allCryptids(request):
 
 def oneCryptids(request, cryptid_id):
     try:
-        c = Cryptid.objects.get(pk=cryptid_id)
+        c = {"cryptid": Cryptid.objects.get(pk=cryptid_id)}
         return render(request, "cage/cryptid.html", c)
     
     except Cryptid.DoesNotExist as ex:

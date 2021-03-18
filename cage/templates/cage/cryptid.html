@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cage{% endblock %}
+{% block content %}
+
+<ul>
+<li>
+    {% if cryptid.image %}
+<img src="{{ cryptid.image.url }}" alt="image">
+{% endif %}
+
+    {{ cryptid.text }}
+
+</li>
+
+</ul>
+{% endblock %}
