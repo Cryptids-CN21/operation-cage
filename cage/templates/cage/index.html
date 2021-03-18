@@ -8,10 +8,9 @@
 <ul>
 {% for cryptid in cryptids %}
 <li>
-<img src="{{ cryptid.image.url }}">
+<img src="{{ cryptid.images.url }}">
 <a href="{% url 'oneCryptids' cryptid.id %}">
     {{ cryptid.text }}
-    {{cryptid.image}}
 </a>
 </li>
 {% empty %}
