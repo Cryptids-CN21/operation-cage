@@ -12,6 +12,7 @@ urlpatterns = [
     path("", views.cage, name="homePage"),
 ]
 
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
