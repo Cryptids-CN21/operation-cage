@@ -10,7 +10,8 @@
 <li>
     {% if cryptid.image %}
 <img src="{{ cryptid.image.url }}" alt="image">
-{% endif %}
+{% endif %} 
+<br>
 <a href="{% url 'cryptid' cryptid.id %}">
     {{ cryptid.text }}
 </a>
