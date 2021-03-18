@@ -21,10 +21,8 @@ def locations(request):
 
 def location(request, location_id):
     l = {"location": Location.objects.get(pk=location_id)}
-    return HttpResponse(l["location"].text)
+    return render(request, "cage/location.html", l)
 
 def dateCryptids(request):
     return HttpResponse("date discovered/created goes here")
 
-def cage(request):
-    return HttpResponse("In the URL type either /all /one /location /listLocation /date after cage/")
