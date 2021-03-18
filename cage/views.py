@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Cryptid
-
+from .models import Cryptid, Location
 # Create your views here.
 
 def allCryptids(request):
@@ -10,17 +9,19 @@ def allCryptids(request):
 
 def oneCryptids(request, cryptid_id):
     try:
-        c = Cryptid.objects.get(pk=cryptid_id)
+        c = {"cryptid": Cryptid.objects.get(pk=cryptid_id)}
         return render(request, "cage/cryptid.html", c)
     
     except Cryptid.DoesNotExist as ex:
         return HttpResponse("No such Cryptid")
 
-def locCryptids(request):
-    return HttpResponse("all locations goes here")
+def locations(request):
+    content = {"locations": Location.objects.all()}
+    return render(request, "cage/locations.html", content)
 
-def locListCryptids(request):
-    return HttpResponse("lists of locations go here")
+def location(request, location_id):
+    l = {"location": Location.objects.get(pk=location_id)}
+    return HttpResponse(l["location"].text)
 
 def dateCryptids(request):
     return HttpResponse("date discovered/created goes here")
