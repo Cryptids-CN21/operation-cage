@@ -11,7 +11,7 @@
     {% if cryptid.image %}
 <img src="{{ cryptid.image.url }}" alt="image">
 {% endif %}
-<a href="{% url 'oneCryptids' cryptid.id %}">
+<a href="{% url 'cryptid' cryptid.id %}">
     {{ cryptid.text }}
 </a>
 </li>

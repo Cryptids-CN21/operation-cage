@@ -6,7 +6,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cage/', include("cage.urls")),
+    path('', include("cage.urls")),
 ]
 
 if settings.DEBUG:

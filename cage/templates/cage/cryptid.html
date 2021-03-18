@@ -12,6 +12,12 @@
 {% endif %}
 
     {{ cryptid.text }}
+    {% for location in cryptid.locations.all %}
+    <a href="{% url 'location' location.id %}">
+        {{ location.text }}
+    
+    </a>
+    {% endfor %}
 
 </li>
 
