@@ -7,19 +7,17 @@ class Cryptid(models.Model):
     pub_date = models.DateTimeField("date published")
 
     image = models.ImageField(upload_to="cryptids/")
+    discovery_date = models.DateField(null=True)
 
     def __str__(self):
         return self.text
 
 
-    @property
-    def published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 class Location(models.Model):
-    cryptid = models.ForeignKey(Cryptid, on_delete=models.CASCADE)
+    cryptids = models.ManyToManyField(Cryptid, related_name="locations")
     text = models.CharField(max_length=200)
-    discoveryDate = models.DateField(null=True)
+    
 
     def __str__(self):
         return self.text
