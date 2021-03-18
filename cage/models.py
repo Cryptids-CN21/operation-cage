@@ -6,10 +6,11 @@ class Cryptid(models.Model):
     text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
 
-    image=models.ImageField(upload_to="media/cryptids/")
+    image = models.ImageField(upload_to="cryptids/")
 
     def __str__(self):
         return self.text
+
 
     @property
     def published_recently(self):

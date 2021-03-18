@@ -8,7 +8,9 @@
 <ul>
 {% for cryptid in cryptids %}
 <li>
-<img src="{{ cryptid.images.url }}">
+    {% if cryptid.image %}
+<img src="{{ cryptid.image.url }}" alt="image">
+{% endif %}
 <a href="{% url 'oneCryptids' cryptid.id %}">
     {{ cryptid.text }}
 </a>
