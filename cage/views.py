@@ -11,7 +11,7 @@ def allCryptids(request):
 def oneCryptids(request, cryptid_id):
     try:
         c = Cryptid.objects.get(pk=cryptid_id)
-        return HttpResponse(c.text)
+        return render(request, "cage/cryptid.html", c)
     
     except Cryptid.DoesNotExist as ex:
         return HttpResponse("No such Cryptid")
