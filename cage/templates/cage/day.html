@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cage{% endblock %}
+{% block content %}
+
+
+
+{% for cryptid in cryptids %}
+    <a href="{% url 'cryptid' cryptid.id %}">
+    {{ cryptid.text}}
+    
+    </a>
+    <a href="{% url 'day' year=cryptid.discovery_date.year month=cryptid.discovery_date.month  day=cryptid.discovery_date.day%}">
+        {{cryptid.discovery_date.year}} / {{cryptid.discovery_date.month}} / {{cryptid.discovery_date.day}}
+    </a>
+{% endfor %}
+
+
+
+
+{% endblock %}
