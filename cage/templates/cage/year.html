@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cage{% endblock %}
+{% block content %}
+
+<ul>
+<li>
+{{ year.discovery_date}}
+    {% for date in discovery_date %}
+    <a href="{% url 'year' year %}">
+        {{ date.discovery_date}}
+    
+    </a>
+    {% endfor %}
+
+</li>
+
+</ul>
+{% endblock %}

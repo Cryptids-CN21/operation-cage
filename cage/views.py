@@ -23,6 +23,12 @@ def location(request, location_id):
     l = {"location": Location.objects.get(pk=location_id)}
     return render(request, "cage/location.html", l)
 
-def dateCryptids(request):
-    return HttpResponse("date discovered/created goes here")
+def dateYearCryptids(request, year):
+    y = {"year": Cryptid.objects.get(pk=year)}
+    return render(request, "cage/year.html", y)
 
+def dateMonthCryptids(request):
+    return HttpResponse("month")
+
+def dateDayCryptids(request):
+    return HttpResponse("day")

@@ -8,9 +8,9 @@ urlpatterns = [
     path("<int:cryptid_id>/", views.oneCryptids, name="cryptid"),
     path("locations/", views.locations, name="locations"),
     path("locations/<int:location_id>/", views.location, name="location"),
-    path("date/<int:year>/", views.dateCryptids, name="dateLocated"),
-    path("date/<int:year>/<int:month>/", views.dateCryptids, name="dateLocated"),
-    path("date/<int:year>/<int:month>/<int:day>/", views.dateCryptids, name="dateLocated"),
+    path("date/<int:year>/", views.dateYearCryptids, name="year"),
+    path("date/<int:year>/<int:month>/", views.dateMonthCryptids, name="month"),
+    path("date/<int:year>/<int:month>/<int:day>/", views.dateDayCryptids, name="day"),
 ]
 
 

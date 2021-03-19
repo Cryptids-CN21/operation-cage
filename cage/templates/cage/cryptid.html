@@ -15,11 +15,16 @@
     {% for location in cryptid.locations.all %}
     <a href="{% url 'location' location.id %}">
         {{ location.text }}
-    
     </a>
     {% endfor %}
-
 </li>
+<!-- <li>
+    {% for discovery_date in cryptids %}
+    <a href="{% url 'year' year %}">
+        {{ year.text }}
+    </a>
+    {% endfor %}
+</li>    -->
 
 </ul>
 {% endblock %}
