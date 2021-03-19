@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'cage/locations.css' %}" /> {% endblock %}
 {% block title %}Cage{% endblock %}
 {% block content %}
 
 
-<ul>
+<div id="locations">
 {% for location in locations %}
 <li>
 <a href="{% url 'location' location.id %}">
@@ -15,5 +17,5 @@
 {% empty %}
     <li>No Locations</li>
 {% endfor %}
-</ul>
+</div>
 {% endblock %}
