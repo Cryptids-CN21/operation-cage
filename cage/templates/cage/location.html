@@ -1,20 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Cage{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'cage/one.css' %}" /> {% endblock %}
+{% block title %}Location - Cage{% endblock %}
 {% block content %}
 
-<ul>
-<li>
-{{ location.text }}
+<div class="oneContainer">
+    <h1 class="oneTitle">
+        {{ location.text }}
+    </h1>
+
+    <p class="oneSubtitle">All cryptids founded in this {{ location.text }}</p>
     {% for cryptid in location.cryptids.all %}
-    <a href="{% url 'cryptid' cryptid.id %}">
+    <a href="{% url 'cryptid' cryptid.id %}" class="oneLinkLocation">
         {{ cryptid.text }}
-    
+
     </a>
     {% endfor %}
 
-</li>
-
-</ul>
+</div>
 {% endblock %}
