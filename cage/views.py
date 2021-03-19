@@ -29,7 +29,7 @@ def dateYearCryptids(request, year):
         context = {"cryptids": Cryptid.objects.filter(discovery_date__year=year)}
         return render(request, "cage/year.html", context)
     except Cryptid.DoesNotExist as ex:
-        return HttpResponse(f"{year}")
+        return HttpResponse(f"Cryptid not discovered in this year: {year}")
 
 
 def dateMonthCryptids(request, year, month):
@@ -38,9 +38,13 @@ def dateMonthCryptids(request, year, month):
         context = {"cryptids": Cryptid.objects.filter(discovery_date__year=year).filter(discovery_date__month=month)}
         return render(request, "cage/month.html", context)
     except Cryptid.DoesNotExist as ex:
-        return HttpResponse(f"cryptid not discovered on {year}/{month}")
+        return HttpResponse(f"cryptid not discovered in this year/month: {year}/{month}")
     
 
 def dateDayCryptids(request, year, month, day):
     """ this view returns all cryptids in given year, month and day"""
-    return HttpResponse(f"{year}/{month}/{day}")
+    try:
+        context = {"cryptids": Cryptid.objects.filter(discovery_date__year=year).filter(discovery_date__month=month).filter(discovery_date__day=day)}
+        return render(request, "cage/day.html", context)
+    except Cryptid.DoesNotExist as ex:
+        return HttpResponse(f"Cryptid not discovered on this date: {year}/{month}/{day}")
