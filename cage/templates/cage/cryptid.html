@@ -19,6 +19,19 @@
         {{ location.text }}
     </a>
     {% endfor %}
+
+<h1>
+<a href="{% url 'year' cryptid.discovery_date.year %}">
+    {{cryptid.discovery_date.year}}
+</a>/
+<a href="{% url 'month' year=cryptid.discovery_date.year month=cryptid.discovery_date.month %}">
+    {{cryptid.discovery_date.month}}
+</a>/
+<a href="{% url 'day' year=cryptid.discovery_date.year month=cryptid.discovery_date.month day=cryptid.discovery_date.day %}">
+    {{cryptid.discovery_date.day}}
+</a>
+</h1>
+
 </div>
 
 {% endblock %}

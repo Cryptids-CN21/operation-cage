@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Cage{% endblock %}
+{% block content %}
+
+<ul>
+<li>
+{% for cryptid in cryptids %}
+    <a href="{% url 'cryptid' cryptid.id %}">
+    {{ cryptid.text}}
+    
+    </a>
+    <a href="{% url 'year' cryptid.discovery_date.year %}">
+        {{cryptid.discovery_date.year}}
+    </a>
+{% endfor %}
+
+</li>
+
+</ul>
+{% endblock %}
