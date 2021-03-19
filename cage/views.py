@@ -24,11 +24,23 @@ def location(request, location_id):
     return render(request, "cage/location.html", l)
 
 def dateYearCryptids(request, year):
-    y = {"year": Cryptid.objects.get(pk=year)}
-    return render(request, "cage/year.html", y)
+    """ this view returns all cryptids in given year """
+    try:
+        context = {"cryptids": Cryptid.objects.filter(discovery_date__year=year)}
+        return render(request, "cage/year.html", context)
+    except Cryptid.DoesNotExist as ex:
+        return HttpResponse(f"{year}")
 
-def dateMonthCryptids(request):
-    return HttpResponse("month")
 
-def dateDayCryptids(request):
-    return HttpResponse("day")
+def dateMonthCryptids(request, year, month):
+    """ this view returns all cryptids in given year and month """
+    try:
+        context = {"cryptids": Cryptid.objects.filter(discovery_date__year=year).filter(discovery_date__month=month)}
+        return render(request, "cage/month.html", context)
+    except Cryptid.DoesNotExist as ex:
+        return HttpResponse(f"cryptid not discovered on {year}/{month}")
+    
+
+def dateDayCryptids(request, year, month, day):
+    """ this view returns all cryptids in given year, month and day"""
+    return HttpResponse(f"{year}/{month}/{day}")
