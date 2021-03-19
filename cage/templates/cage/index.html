@@ -1,23 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'cage/all.css' %}" /> {% endblock %}
 {% block title %}Cage{% endblock %}
 {% block content %}
 
 
-<ul>
+<div class="cryptids">
 {% for cryptid in cryptids %}
-<li>
+<div class="cryptidInfo">
     {% if cryptid.image %}
 <img src="{{ cryptid.image.url }}" alt="image">
 {% endif %} 
-<br>
-<a href="{% url 'cryptid' cryptid.id %}">
+
+<a href="{% url 'cryptid' cryptid.id %}" id="text">
     {{ cryptid.text }}
 </a>
-</li>
+</div>  
 {% empty %}
     <li>No Cryptids</li>
 {% endfor %}
-</ul>
+</div>
 {% endblock %}
