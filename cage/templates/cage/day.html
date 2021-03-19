@@ -1,22 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'cage/date.css' %}" /> {% endblock %}
 {% block title %}Cage{% endblock %}
 {% block content %}
 
 
+<div class="oneContainer">
+<h1 class="oneTitle">
+    Search by Day
+</h1>
 
 {% for cryptid in cryptids %}
-    <a href="{% url 'cryptid' cryptid.id %}">
+    <a href="{% url 'cryptid' cryptid.id %}" class="oneSubtitle">
     {{ cryptid.text}}
-    
     </a>
-    <a href="{% url 'day' year=cryptid.discovery_date.year month=cryptid.discovery_date.month  day=cryptid.discovery_date.day%}">
+    
+    <a class="oneLink "href="{% url 'day' year=cryptid.discovery_date.year month=cryptid.discovery_date.month  day=cryptid.discovery_date.day%}">
         {{cryptid.discovery_date.year}} / {{cryptid.discovery_date.month}} / {{cryptid.discovery_date.day}}
     </a>
 {% endfor %}
 
-
-
-
+</div>
 {% endblock %}
