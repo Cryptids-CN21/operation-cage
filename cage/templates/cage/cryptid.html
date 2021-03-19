@@ -1,25 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block css %}<link rel="stylesheet" type="text/css" href="{% static 'cage/index.css' %}" /> {% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'cage/one.css' %}" /> {% endblock %}
 {% block title %}Cage{% endblock %}
 {% block content %}
 
-<ul>
-<li>
-    {% if cryptid.image %}
-<img src="{{ cryptid.image.url }}" alt="image">
-{% endif %}
 
-    {{ cryptid.text }}
+<div class="oneContainer">
+    {% if cryptid.image %}
+    <img src="{{ cryptid.image.url }}" alt="image" class="oneImg">
+    {% endif %}
+    <h1 class="oneTitle">
+        {{ cryptid.text }}
+    </h1>
     {% for location in cryptid.locations.all %}
-    <a href="{% url 'location' location.id %}">
+    <a href="{% url 'location' location.id %}" class="oneLink">
         {{ location.text }}
-    
     </a>
     {% endfor %}
+</div>
 
-</li>
-
-</ul>
 {% endblock %}
